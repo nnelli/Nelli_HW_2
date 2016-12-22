@@ -35,7 +35,7 @@ class Department
     employees_to_get_raises = []
 
     @employees.each do |e|
-      if e.satisfactory? == "Yes"
+      if e.satisfactory? == true
         employees_to_get_raises << e
       end
     end

@@ -50,11 +50,11 @@ class Employee
   end
 
   def mark_satisfactory
-    @satisfactory = "Yes"
+    @satisfactory = true
   end
 
   def mark_unsatisfactory
-    @satisfactory = "No"
+    @satisfactory = false
   end
 
   def satisfactory?
