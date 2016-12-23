@@ -49,16 +49,33 @@ class Employee
     @reviews
   end
 
-  def mark_satisfactory
-    @satisfactory = true
-  end
-
-  def mark_unsatisfactory
-    @satisfactory = false
+  def satisfactory_review(review)
+    if /only concerns/ =~ review
+      "yes"
+    elsif /great asset/ =~ review
+      "yes"
+    elsif /perfect/ =~ review
+      "yes"
+    elsif /always willing to help others/ =~ review
+      "yes"
+    else
+      "no"
+    end
   end
 
   def satisfactory?
-    @satisfactory
+    review_ratings = []
+
+    @reviews.each do |r|
+      review_ratings << satisfactory_review(r)
+    end
+
+    if review_ratings.include? "no"
+      @satisfactory = false
+    else
+      @satisfactory = true
+    end
+
   end
 
 end

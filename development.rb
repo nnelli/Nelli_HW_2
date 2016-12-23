@@ -1,5 +1,9 @@
 require './Department.rb'
 
+review_file = File.open('./reviews.txt')
+
+reviews = review_file.read.split("\n\n")
+
 nick = Employee.new(name: "Nick", email: "nick@nick.com", phone_number: "2", salary: 60000)
 
 adam = Employee.new(name: "Adam", phone_number: "30", salary: 40000, email: "adam@adam.com")
@@ -28,20 +32,18 @@ awesome.list_employees
 
 puts "The total salary of #{awesome.name} is $#{awesome.total_salary}"
 
-nick.give_perc_raise(10)
+nick.give_perc_raise(20)
 
-puts "Nick was given a 10% raise, his new salary is $#{nick.salary}"
+puts "Nick was given a 20% raise, his new salary is $#{nick.salary}"
 
-nick.give_review("Best employee ever")
+nick.give_review(reviews[2])
+
+adam.give_review(reviews[1])
+
+michael.give_review(reviews[0])
 
 puts "Nick was given a review, his reviews read: "
 puts nick.reviews
-
-nick.mark_satisfactory
-
-michael.mark_satisfactory
-
-adam.mark_unsatisfactory
 
 puts "Is Nick a satisfactory employee?"
 puts nick.satisfactory?
@@ -52,8 +54,8 @@ puts adam.satisfactory?
 puts "Is Michael a satisfactory employee?"
 puts michael.satisfactory?
 
-puts "Lets give $2500 to the #{awesome.name} for raises, but only for satisfactory employees."
-awesome.give_raises(2500)
+puts "Lets give $11500 to the #{awesome.name} for raises, but only for satisfactory employees."
+awesome.give_raises(11500)
 
 puts "Nick's new salary is $#{nick.salary}"
 puts "Adam's new salary is $#{adam.salary}"
