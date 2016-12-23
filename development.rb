@@ -38,6 +38,8 @@ puts "Nick was given a 20% raise, his new salary is $#{nick.salary}"
 
 nick.give_review(reviews[2])
 
+nick.give_review("Still the perfect employee.")
+
 adam.give_review(reviews[1])
 
 michael.give_review(reviews[0])
